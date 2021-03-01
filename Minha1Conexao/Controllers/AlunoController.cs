@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Minha1Conexao.Data.Interface;
 using Minha1Conexao.Data.Repository;
 using Minha1Conexao.Domain;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,42 +12,47 @@ namespace Minha1Conexao.Controllers
     [ApiController]
     public class AlunoController : ControllerBase
     {
-        private AlunoRepository repo = new AlunoRepository();
+        private IAlunoRepository _repo;
+
+        public AlunoController(IAlunoRepository repo)
+        {
+            _repo = repo;
+        }
         // GET: api/<AlunoController>
         [HttpGet]
         public IEnumerable<Aluno> Get()
         {
-            return repo.SelecionarTudo();
+            return _repo.SelecionarTudo();
         }
 
         // GET api/<AlunoController>/5
         [HttpGet("{id}")]
         public Aluno Get(int id)
         {
-            return repo.Selecionar(id);
+            return _repo.Selecionar(id);
         }
 
         // POST api/<AlunoController>
         [HttpPost]
         public IEnumerable<Aluno> Post([FromBody] Aluno aluno)
         {
-            repo.Incluir(aluno);
-            return repo.SelecionarTudo();
+            _repo.Incluir(aluno);
+            return _repo.SelecionarTudo();
         }
 
         // PUT api/<AlunoController>/5
         [HttpPut("{id}")]
         public IEnumerable<Aluno> Put(int id, [FromBody] Aluno aluno)
         {
-            repo.Alterar(aluno);
-            return repo.SelecionarTudo();
+            _repo.Alterar(aluno);
+            return _repo.SelecionarTudo();
         }
 
         // DELETE api/<AlunoController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            repo.Excluir(id);
+            _repo.Excluir(id);
         }
     }
 }

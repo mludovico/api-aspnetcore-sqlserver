@@ -2,7 +2,6 @@
 using Minha1Conexao.Data.Map;
 using Minha1Conexao.Domain;
 using Minha1Conexao.Domain.Model;
-using System;
 
 namespace Minha1Conexao.Data
 {

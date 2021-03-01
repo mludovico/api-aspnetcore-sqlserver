@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Minha1Conexao.Data.Interface;
+using Minha1Conexao.Data.Repository;
 
 namespace Minha1Conexao
 {
@@ -17,6 +14,10 @@ namespace Minha1Conexao
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
+            services.AddScoped<IProfessorRepository, ProfessorRepository>();
+            services.AddScoped<ITurmaRepository, TurmaRepository>();
+            services.AddScoped<ITurmaProfessorRepository, TurmaProfessorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

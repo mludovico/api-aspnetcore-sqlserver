@@ -1,11 +1,9 @@
 ﻿using Minha1Conexao.Domain.Model;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Minha1Conexao.Domain
 {
-    public class Professor
+    public class Professor : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }

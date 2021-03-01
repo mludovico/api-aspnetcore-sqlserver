@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Minha1Conexao.Domain.Model
 {
-    public class Turma
+    public class Turma : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }
