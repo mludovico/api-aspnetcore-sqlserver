@@ -7,5 +7,6 @@ namespace Minha1Conexao.Data.Interface
 {
     public interface ITurmaProfessorRepository : IBaseRepository<TurmaProfessor>
     {
+        public List<TurmaProfessor> SelecionarTudoCompleto();
     }
 }

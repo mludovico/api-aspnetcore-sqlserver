@@ -5,5 +5,8 @@ namespace Minha1Conexao.Data.Repository
 {
     public class ProfessorRepository : BaseRepository<Professor>, IProfessorRepository
     {
+        public ProfessorRepository(Context context) : base(context)
+        {
+        }
     }
 }

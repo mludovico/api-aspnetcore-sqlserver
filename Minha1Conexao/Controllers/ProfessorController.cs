@@ -12,7 +12,7 @@ namespace Minha1Conexao.Controllers
     [ApiController]
     public class ProfessorController : ControllerBase
     {
-        private IProfessorRepository _repo;
+        private readonly IProfessorRepository _repo;
 
         public ProfessorController(IProfessorRepository repo)
         {

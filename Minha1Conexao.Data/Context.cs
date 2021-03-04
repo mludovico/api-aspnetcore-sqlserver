@@ -7,16 +7,15 @@ namespace Minha1Conexao.Data
 {
     public class Context : DbContext
     {
+
+        public Context(DbContextOptions options) : base(options)
+        {
+        
+        }
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Professor> Professor { get; set; }
         public DbSet<Turma> Turma { get; set; }
         public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=VAIO-MARCELO\\SQLEXPRESS; Database=Minha1Conexao; Trusted_Connection=True");
-            base.OnConfiguring(optionsBuilder);
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

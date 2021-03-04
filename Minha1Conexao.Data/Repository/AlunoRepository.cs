@@ -6,5 +6,8 @@ namespace Minha1Conexao.Data.Repository
 {
     public class AlunoRepository : BaseRepository<Aluno>, IAlunoRepository
     {
+        public AlunoRepository(Context context) : base(context)
+        {
+        }
     }
 }

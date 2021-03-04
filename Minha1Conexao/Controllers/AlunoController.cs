@@ -12,7 +12,7 @@ namespace Minha1Conexao.Controllers
     [ApiController]
     public class AlunoController : ControllerBase
     {
-        private IAlunoRepository _repo;
+        private readonly IAlunoRepository _repo;
 
         public AlunoController(IAlunoRepository repo)
         {

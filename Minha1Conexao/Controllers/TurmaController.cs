@@ -12,7 +12,7 @@ namespace Minha1Conexao.Controllers
     [ApiController]
     public class TurmaController : ControllerBase
     {
-        private ITurmaRepository _repo;
+        private readonly ITurmaRepository _repo;
 
         public TurmaController(ITurmaRepository repo)
         {

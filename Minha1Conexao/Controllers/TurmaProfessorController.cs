@@ -12,7 +12,7 @@ namespace Minha1Conexao.Controllers
     [ApiController]
     public class TurmaProfessorController : ControllerBase
     {
-        private ITurmaProfessorRepository _repo;
+        private readonly ITurmaProfessorRepository _repo;
 
         public TurmaProfessorController(ITurmaProfessorRepository repo)
         {
@@ -23,7 +23,7 @@ namespace Minha1Conexao.Controllers
         [HttpGet]
         public IEnumerable<TurmaProfessor> Get()
         {
-            return _repo.SelecionarTudo();
+            return _repo.SelecionarTudoCompleto();
         }
 
         // GET api/<TurmaProfessorController>/5

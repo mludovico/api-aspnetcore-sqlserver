@@ -6,34 +6,40 @@ namespace Minha1Conexao.Data.Repository
 {
     public class BaseRepository<T> where T: class, IEntity
     {
-        protected Context context;
-        public void Incluir(T entity)
+        protected Context _context;
+
+        public BaseRepository(Context context)
         {
-            context.Set<T>().Add(entity);
-            context.SaveChanges();
+            _context = context;
+        }
+
+        public virtual void Incluir(T entity)
+        {
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
         public List<T> SelecionarTudo()
         {
-            return context.Set<T>().ToList();
+            return _context.Set<T>().ToList();
         }
 
         public T Selecionar(int id)
         {
-            return context.Set<T>().Where<T>(x => x.Id == id).FirstOrDefault();
+            return _context.Set<T>().Where<T>(x => x.Id == id).FirstOrDefault();
         }
 
         public void Alterar(T entity)
         {
-            context.Set<T>().Update(entity);
+            _context.Set<T>().Update(entity);
         }
 
         public void Excluir(int id)
         {
             var entity = Selecionar(id);
-            context.Set<T>().Remove(entity);
+            _context.Set<T>().Remove(entity);
         }
 
-        public void Dispose() => context.Dispose();
+        public void Dispose() => _context.Dispose();
     }
 }

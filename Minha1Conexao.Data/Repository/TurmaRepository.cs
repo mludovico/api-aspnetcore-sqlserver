@@ -5,5 +5,8 @@ namespace Minha1Conexao.Data.Repository
 {
     public class TurmaRepository : BaseRepository<Turma>, ITurmaRepository
     {
+        public TurmaRepository(Context context) : base(context)
+        {
+        }
     }
 }
