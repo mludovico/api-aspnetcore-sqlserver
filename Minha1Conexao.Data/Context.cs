@@ -16,6 +16,7 @@ namespace Minha1Conexao.Data
         public DbSet<Professor> Professor { get; set; }
         public DbSet<Turma> Turma { get; set; }
         public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,7 @@ namespace Minha1Conexao.Data
             modelBuilder.ApplyConfiguration(new ProfessorMap());
             modelBuilder.ApplyConfiguration(new TurmaMap());
             modelBuilder.ApplyConfiguration(new TurmaProfessorMap());
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
             base.OnModelCreating(modelBuilder);
         }
     }
