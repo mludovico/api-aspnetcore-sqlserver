@@ -7,6 +7,6 @@ namespace Minha1Conexao
 {
     public class Configuracoes
     {
-        public static string Secret = "minha1Conexao";
+        public static string Secret = "minha1Conexao123";
     }
 }
